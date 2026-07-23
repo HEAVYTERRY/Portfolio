@@ -23,7 +23,7 @@ body {
 
 .sidenav {
     height: 100%;
-    width: 200px;
+    width: 220px;
     position: fixed;
     top: 0;
     left: 0;
@@ -38,6 +38,7 @@ body {
     text-decoration: none;
     font-size: 25px;
     color: black;
+    white-space: nowrap;
 }
 
 .sidenav a:hover {
@@ -47,7 +48,7 @@ body {
 /* ---------------- Main ---------------- */
 
 .main {
-    margin-left: 200px;
+    margin-left: 220px;
     min-height: 100vh;
 
     display: flex;
@@ -55,6 +56,8 @@ body {
     align-items: center;
 
     padding: 40px;
+
+    transform: translateX(-50px);
 }
 
 /* ---------------- Intro ---------------- */
@@ -93,12 +96,14 @@ body {
     .sidenav a {
         padding: 12px;
         font-size: 20px;
+        white-space: normal;
     }
 
     .main {
         margin-left: 0;
         min-height: auto;
         padding: 60px 25px;
+        transform: none;
     }
 
     .intro {
