@@ -1,71 +1,133 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>Portfolio - About</title>
-<head>
+
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Portfolio - About</title>
+
 <style>
-body {
-  font-family: "Lato", sans-serif;
+
+* {
+    box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+}
+
+/* ---------------- Sidebar ---------------- */
+
 .sidenav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #FFFFFF ;
-  overflow-x: hidden;
-  padding-top: 20px;
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    overflow-x: hidden;
+    padding-top: 20px;
 }
 
 .sidenav a {
-  padding: 6px 6px 6px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #000000;
-  display: block;
+    display: block;
+    padding: 6px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
 }
 
 .sidenav a:hover {
-  color: #F54927;
+    color: #F54927;
 }
+
+/* ---------------- Main ---------------- */
 
 .main {
-  margin-left: 200px; /* Same as the width of the sidenav */
+    margin-left: 200px;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
 }
 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
-</head>
-<body>
+/* ---------------- Intro ---------------- */
 
-<div class="sidenav">
-  <a style="color: #F54927;">Lachlan Biewer</a>
-  <a href="2dGraphics.html">2D Graphics</a>
-  <a href="index.html">About</a>
-  <a href="Contact.html">Contact</a>
-</div>
-
-<h2 class="intro">
-  Hello! I'm Lachlan. I've dedicated several years to the art of graphic design, transforming ideas into visual experiences. Illustrations are at the heart of my work, with a primary focus on <a href="2dGraphics.html" style="color: #d32f2f; text-decoration: none;">apparel and poster</a> designs.
-</h2>
-
-<style>
 .intro {
     max-width: 700px;
-    margin: 400 auto;
     text-align: center;
-    font-family: "Lato", sans-serif;
+
     font-size: 28px;
     font-weight: 300;
     line-height: 1.6;
     color: #333;
 }
+
+.intro a {
+    color: #F54927;
+    text-decoration: none;
+}
+
+.intro a:hover {
+    text-decoration: underline;
+}
+
+/* ---------------- Mobile ---------------- */
+
+@media screen and (max-width:768px) {
+
+    .sidenav {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding-top: 10px;
+        text-align: center;
+    }
+
+    .sidenav a {
+        padding: 12px;
+        font-size: 20px;
+    }
+
+    .main {
+        margin-left: 0;
+        min-height: auto;
+        padding: 60px 25px;
+    }
+
+    .intro {
+        font-size: 22px;
+        line-height: 1.5;
+    }
+
+}
+
 </style>
+
+</head>
+
+<body>
+
+<div class="sidenav">
+    <a style="color:#F54927;">Lachlan Biewer</a>
+    <a href="2dGraphics.html">2D Graphics</a>
+    <a href="index.html">About</a>
+    <a href="Contact.html">Contact</a>
+</div>
+
+<div class="main">
+
+    <h2 class="intro">
+        Hello! I'm Lachlan. I've dedicated several years to the art of graphic design, transforming ideas into visual experiences. Illustrations are at the heart of my work, with a primary focus on <a href="2dGraphics.html">apparel and poster</a> designs.
+    </h2>
+
+</div>
+
 </body>
 </html>
