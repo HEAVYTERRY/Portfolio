@@ -16,46 +16,64 @@
 
 body {
     margin: 0;
-    font-family: "Lato", sans-serif;
+    font-family: "Lato", Arial, sans-serif;
 }
 
-/* ---------------- Sidebar ---------------- */
+
+/* =========================
+   NAVIGATION
+   ========================= */
 
 .sidenav {
-    height: 100%;
-    width: 220px;
     position: fixed;
     top: 0;
     left: 0;
-    background: white;
-    overflow-x: hidden;
+
+    width: 200px;
+    height: 100%;
+
     padding-top: 20px;
+
+    overflow-x: hidden;
+
+    background: transparent;
+
+    z-index: 10;
 }
 
 .sidenav a {
     display: block;
-    padding: 6px 32px;
+
+    padding: 6px 6px 6px 32px;
+
     text-decoration: none;
+
     font-size: 25px;
-    color: black;
+
+    color: #000;
 }
 
 .sidenav a:hover {
     color: #F54927;
 }
 
-/* ---------------- Name ---------------- */
+
+/* =========================
+   NAME
+   ========================= */
 
 .sidenav .logo {
     color: #F54927;
-    padding-bottom: 20px;
     line-height: 1;
 }
 
-/* ---------------- Main ---------------- */
+
+/* =========================
+   MAIN CONTENT
+   ========================= */
 
 .main {
-    margin-left: 240px;
+    margin-left: 200px;
     min-height: 100vh;
 
     display: flex;
@@ -67,20 +85,28 @@ body {
     transform: translateX(-100px);
 }
 
-/* ---------------- Intro ---------------- */
+
+/* =========================
+   INTRO
+   ========================= */
 
 .intro {
     max-width: 700px;
+
     text-align: center;
 
     font-size: 28px;
+
     font-weight: 300;
+
     line-height: 1.6;
+
     color: #333;
 }
 
 .intro a {
     color: #F54927;
+
     text-decoration: none;
 }
 
@@ -88,38 +114,55 @@ body {
     text-decoration: underline;
 }
 
-/* ---------------- Mobile ---------------- */
+
+/* =========================
+   MOBILE
+   ========================= */
 
 @media screen and (max-width: 768px) {
 
     .sidenav {
+        position: relative;
+
         width: 100%;
         height: auto;
-        position: relative;
+
+        display: flex;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
         padding-top: 10px;
-        text-align: center;
     }
+
 
     .sidenav a {
-        padding: 12px;
-        font-size: 20px;
-        white-space: normal;
+        font-size: 18px;
+
+        padding: 10px;
     }
 
+
     .sidenav .logo {
-        padding-bottom: 12px;
         line-height: 1;
     }
 
+
     .main {
         margin-left: 0;
+
         min-height: auto;
+
         padding: 60px 25px;
+
         transform: none;
     }
 
+
     .intro {
         font-size: 22px;
+
         line-height: 1.5;
     }
 
@@ -129,27 +172,49 @@ body {
 
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     NAVIGATION
+     ========================= -->
 
 <div class="sidenav">
 
-    <a class="logo">Lachlan<br>Biewer</a>
+    <a class="logo">
+        Lachlan<br>Biewer
+    </a>
 
-    <a href="2dGraphics.html">2D Graphics</a>
+    <a href="2dGraphics.html">
+        2D Graphics
+    </a>
 
-    <a href="index.html">About</a>
+    <a href="index.html">
+        About
+    </a>
 
-    <a href="Contact.html">Contact</a>
+    <a href="Contact.html">
+        Contact
+    </a>
 
 </div>
+
+
+<!-- =========================
+     MAIN CONTENT
+     ========================= -->
 
 <div class="main">
 
     <h2 class="intro">
-        Hello! I'm Lachlan Biewer. I've dedicated several years to the art of graphic design, transforming ideas into visual experiences. Illustrations are at the heart of my work, with a primary focus on <a href="2dGraphics.html">apparel and poster</a> designs.
+
+        Hello! I'm Lachlan. I've dedicated several years to the art of graphic design, transforming ideas into visual experiences. Illustrations are at the heart of my work, with a primary focus on <a href="2dGraphics.html">apparel and poster</a> designs.
+
     </h2>
 
 </div>
+
 
 </body>
 
