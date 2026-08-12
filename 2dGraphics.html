@@ -1,114 +1,290 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-<title>Portfolio - 2D Graphics</title>
 
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Portfolio - 2D Graphics</title>
 
 <style>
 
+* {
+    box-sizing: border-box;
+}
+
 body {
-  font-family: "Lato", sans-serif;
-  margin: 0;
+    margin: 0;
+    font-family: "Lato", Arial, sans-serif;
 }
 
 
-/* Sidebar */
+/* =========================
+   NAVIGATION
+   ========================= */
+
 .sidenav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0px;
-  background-color: #FFFFFF;
-  overflow-x: hidden;
-  padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 200px;
+    height: 100%;
+
+    padding-top: 20px;
+
+    overflow-x: hidden;
+
+    background: transparent;
+
+    z-index: 10;
 }
 
 .sidenav a {
-  padding: 6px 6px 6px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #000000;
-  display: block;
+    display: block;
+
+    padding: 6px 6px 6px 32px;
+
+    text-decoration: none;
+
+    font-size: 25px;
+
+    color: #000;
 }
 
 .sidenav a:hover {
-  color: #F54927;
+    color: #F54927;
 }
 
 
-/* Main content */
+/* =========================
+   MAIN CONTENT
+   ========================= */
+
 .main {
-  margin-left: 75px;
+    margin-left: 200px;
 }
 
 
-/* Menu */
-.menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  height: 100vh;
+/* =========================
+   GALLERY
+   ========================= */
+
+.row {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 35px;
+
+    padding: 40px 30px 60px;
 }
 
 
-.menu a {
-  text-decoration: none;
-  color: #F54927;
-  font-size: clamp(40px, 8vw, 100px);
-  font-weight: bold;
+/* =========================
+   GALLERY ITEMS
+   ========================= */
+
+.column {
+    width: 100%;
 }
 
 
-.menu a:hover {
-  color: black;
+/* =========================
+   IMAGE BOXES
+   ========================= */
+
+.column img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: contain;
+
+    display: block;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.column img:hover {
+    transform: scale(1.025);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
 
+/* =========================
+   CAPTIONS
+   ========================= */
 
-/* Phone layout */
+.column p {
+    margin: 12px 0 0;
+
+    text-align: center;
+
+    font-size: 15px;
+
+    color: grey;
+
+    font-family: "Lato", Arial, sans-serif;
+
+    font-weight: bold;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   IMAGE POP-UP
+   ========================= */
+
+.lightbox {
+    display: none;
+
+    position: fixed;
+
+    z-index: 100;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.9);
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+}
+
+
+.lightbox img {
+    max-width: 90%;
+
+    max-height: 90vh;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   CLOSE BUTTON
+   ========================= */
+
+.lightbox-close {
+    position: fixed;
+
+    top: 20px;
+    right: 35px;
+
+    color: white;
+
+    font-size: 45px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    z-index: 101;
+}
+
+.lightbox-close:hover {
+    color: #F54927;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
 @media screen and (max-width: 768px) {
 
+    .sidenav {
+        position: relative;
 
-  /* Sidebar becomes top navigation */
-  .sidenav {
-    width: 100%;
-    height: auto;
-    position: relative;
-    padding-top: 10px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+        width: 100%;
+        height: auto;
 
+        display: flex;
 
-  .sidenav a {
-    font-size: 18px;
-    padding: 10px;
-  }
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        padding-top: 10px;
+    }
 
 
-  /* Remove sidebar gap */
-  .main {
-    margin-left: 0;
-  }
+    .sidenav a {
+        font-size: 18px;
+
+        padding: 10px;
+    }
 
 
-  /* Stack menu buttons */
-  .menu {
-    height: 70vh;
-    flex-direction: column;
-    gap: 30px;
-  }
+    .main {
+        margin-left: 0;
+    }
 
 
-  .menu a {
-    font-size: 50px;
-  }
+    .row {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        padding: 20px 15px 40px;
+    }
+
+
+    .column {
+        width: 100%;
+    }
+
+
+    .column img {
+        width: 100%;
+
+        aspect-ratio: 1 / 1;
+
+        object-fit: contain;
+    }
+
+
+    .column p {
+        margin-top: 10px;
+
+        font-size: 14px;
+    }
+
+
+    .lightbox {
+        padding: 20px;
+    }
+
+
+    .lightbox img {
+        max-width: 95%;
+
+        max-height: 85vh;
+    }
+
+
+    .lightbox-close {
+        font-size: 35px;
+
+        right: 20px;
+
+        top: 10px;
+    }
 
 }
 
@@ -120,23 +296,455 @@ body {
 <body>
 
 
+<!-- =========================
+     NAVIGATION
+     ========================= -->
+
 <div class="sidenav">
-  <a style="color: #F54927;">Lachlan Biewer</a>
-  <a href="2dGraphics.html">2D Graphics</a>
-  <a href="index.html">About</a>
-  <a href="Contact.html">Contact</a>
+
+    <a style="color:#F54927;">
+        Lachlan Biewer
+    </a>
+
+    <a href="2dGraphics.html">
+        2D Graphics
+    </a>
+
+    <a href="index.html">
+        About
+    </a>
+
+    <a href="Contact.html">
+        Contact
+    </a>
+
 </div>
 
+
+<!-- =========================
+     MAIN CONTENT
+     ========================= -->
 
 <div class="main">
 
-<div class="menu">
-    <a href="Apparel.html">Apparel</a>
-    <a href="Posters.html">Posters</a>
-</div>
+    <div class="row" id="gallery">
+
+
+        <!-- =========================
+             POSTERS
+             ========================= -->
+
+        <div class="column poster">
+
+            <img
+                src="Images/Poster6.png"
+                alt="In The Burrow #3 Festival Poster"
+                onclick="openLightbox(this)"
+            >
+
+            <p>
+                In The Burrow #3 Festival Poster - 2026
+            </p>
+
+        </div>
+
+
+        <div class="column poster">
+
+            <img
+                src="Images/Poster1.jpg"
+                alt="W.O.M.B.A.T Tour Poster"
+                onclick="openLightbox(this)"
+            >
+
+            <p>
+                W.O.M.B.A.T Tour Poster - 2026
+            </p>
+
+        </div>
+
+
+        <div class="column poster">
+
+            <img
+                src="Images/Poster5.jpg"
+                alt="Kitty Mustang Show Poster"
+                onclick="openLightbox(this)"
+            >
+
+            <p>
+                Kitty Mustang Show Poster - 2026
+            </p>
+
+        </div>
+
+
+        <div class="column poster">
+
+            <img
+                src="Images/Poster2.jpg"
+                alt="Handgrenade Hearts Album Launch Poster"
+                onclick="openLightbox(this)"
+            >
+
+            <p>
+                Handgrenade Hearts Album Launch Poster - 2026
+            </p>
+
+        </div>
+
+
+        <div class="column poster">
+
+            <img
+                src="Images/Poster3.jpg"
+                alt="The Ivy Walkers Promotional Poster"
+                onclick="openLightbox(this)"
+            >
+
+            <p>
+                The Ivy Walkers Promotional Poster - 2025
+            </p>
+
+        </div>
+
+
+        <div class="column poster">
+
+            <img
+                src="Images/Poster4.jpg"
+                alt="The Ivy Walkers Album Launch Poster"
+                onclick="openLightbox(this)"
+            >
+
+            <p>
+                The Ivy Walkers Album Launch Poster - 2024
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             APPAREL / IMAGES
+             ========================= -->
+
+        <div class="column image">
+
+            <img
+                src="Images/image1.jpg"
+                alt="Death On The Radio Design"
+                onclick="openLightbox(this)"
+            >
+
+            <p>
+                Death On The Radio Design - 2024
+            </p>
+
+        </div>
+
+
+        <div class="column image">
+
+            <img
+                src="Images/image2.jpg"
+                alt="Achey Peace Design"
+                onclick="openLightbox(this)"
+            >
+
+            <p>
+                Achey Peace Design - 2026
+            </p>
+
+        </div>
+
+
+        <div class="column image">
+
+            <img
+                src="Images/image3.jpg"
+                alt="Achey Peace Design"
+                onclick="openLightbox(this)"
+            >
+
+            <p>
+                Achey Peace Design - 2026
+            </p>
+
+        </div>
+
+
+        <div class="column image">
+
+            <img
+                src="Images/image4.jpg"
+                alt="Video Killed Radio Design"
+                onclick="openLightbox(this)"
+            >
+
+            <p>
+                Video Killed Radio Design - 2026
+            </p>
+
+        </div>
+
+
+        <div class="column image">
+
+            <img
+                src="Images/image5.jpg"
+                alt="Vintage Ringer Tee Design"
+                onclick="openLightbox(this)"
+            >
+
+            <p>
+                Vintage Ringer Tee Design - 2022
+            </p>
+
+        </div>
+
+
+    </div>
 
 </div>
+
+
+<!-- =========================
+     IMAGE POP-UP
+     ========================= -->
+
+<div id="lightbox" class="lightbox">
+
+    <span
+        class="lightbox-close"
+        onclick="closeLightbox()"
+    >
+        &times;
+    </span>
+
+    <img
+        id="lightboxImage"
+        alt="Enlarged graphic"
+    >
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+     ========================= -->
+
+<script>
+
+
+/* =========================
+   SHUFFLE ARRAY
+   ========================= */
+
+function shuffle(array) {
+
+    for (
+        let i = array.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const randomIndex =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+        [
+            array[i],
+            array[randomIndex]
+        ] = [
+            array[randomIndex],
+            array[i]
+        ];
+
+    }
+
+    return array;
+}
+
+
+/* =========================
+   RANDOMISE GALLERY
+   ========================= */
+
+function randomiseGallery() {
+
+    const gallery =
+        document.getElementById("gallery");
+
+
+    /* Get posters */
+
+    const posters =
+        Array.from(
+            gallery.querySelectorAll(".poster")
+        );
+
+
+    /* Get apparel / images */
+
+    const images =
+        Array.from(
+            gallery.querySelectorAll(".image")
+        );
+
+
+    /* Shuffle both groups */
+
+    shuffle(posters);
+
+    shuffle(images);
+
+
+    /* Clear gallery */
+
+    gallery.innerHTML = "";
+
+
+    /*
+       Create the pattern:
+
+       POSTER | IMAGE | POSTER
+       POSTER | IMAGE | POSTER
+       POSTER | IMAGE | POSTER
+       etc.
+    */
+
+    let posterIndex = 0;
+
+    let imageIndex = 0;
+
+
+    while (
+        posterIndex < posters.length ||
+        imageIndex < images.length
+    ) {
+
+        /* Left column */
+
+        if (posterIndex < posters.length) {
+
+            gallery.appendChild(
+                posters[posterIndex]
+            );
+
+            posterIndex++;
+
+        }
+
+
+        /* Middle column */
+
+        if (imageIndex < images.length) {
+
+            gallery.appendChild(
+                images[imageIndex]
+            );
+
+            imageIndex++;
+
+        }
+
+
+        /* Right column */
+
+        if (posterIndex < posters.length) {
+
+            gallery.appendChild(
+                posters[posterIndex]
+            );
+
+            posterIndex++;
+
+        }
+
+    }
+
+}
+
+
+/* Run when page loads */
+
+randomiseGallery();
+
+
+/* =========================
+   OPEN IMAGE
+   ========================= */
+
+function openLightbox(image) {
+
+    document
+        .getElementById("lightbox")
+        .style.display = "flex";
+
+
+    document
+        .getElementById("lightboxImage")
+        .src = image.src;
+
+}
+
+
+/* =========================
+   CLOSE IMAGE
+   ========================= */
+
+function closeLightbox() {
+
+    document
+        .getElementById("lightbox")
+        .style.display = "none";
+
+}
+
+
+/* =========================
+   CLICK OUTSIDE IMAGE
+   ========================= */
+
+document
+    .getElementById("lightbox")
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (event.target === this) {
+
+                closeLightbox();
+
+            }
+
+        }
+    );
+
+
+/* =========================
+   ESCAPE KEY
+   ========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeLightbox();
+
+        }
+
+    }
+);
+
+
+</script>
 
 
 </body>
+
 </html>
+
